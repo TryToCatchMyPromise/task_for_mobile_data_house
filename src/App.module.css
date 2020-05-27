@@ -1,0 +1,80 @@
+.grid {
+    display: grid;
+    height: 600px;
+    margin: 9px;
+    grid-template-columns: [subgrid1_start] 5fr [subgrid1_end subgrid2_start] 2fr
+                            [subgrid2_end subgrid3_start] 2fr [subgrid3_end];
+    grid-template-rows: [subgrid1_r_start subgrid2_r_start subgrid3_r_start] 1fr
+                            [subgrid1_r_end subgrid2_r_end subgrid3_r_end];
+
+    color: white;
+    font-size: 20px;
+
+}
+
+.grid, .subgrid1, .subgrid3 {
+    grid-column-gap: 9px;
+    grid-row-gap: 9px;
+}
+
+.subgrid1 {
+    display: grid;
+    grid-column: subgrid1_start / subgrid1_end;
+    grid-row: subgrid1_r_start / subgrid1_r_end;
+    grid-template-columns: [A_start C_start D_start] 2fr [A_end B_start] 1fr [C_end D_end E_start] 2fr [B_end E_end];
+    grid-template-rows: [A_r_start B_r_start] 3fr [A_r_end B_r_end C_r_start E_r_start] 2fr [C_r_end D_r_start] 2fr [D_r_end E_r_end];
+}
+
+.subgrid1_itemA {
+    grid-column: A_start / A_end;
+    grid-row: A_r_start / A_r_end;
+}
+
+.subgrid1_itemB {
+    grid-column: B_start / B_end;
+    grid-row: B_r_start / B_r_end;
+}
+
+.subgrid1_itemC {
+    grid-column: C_start / C_end;
+    grid-row: C_r_start / C_r_end;
+}
+
+.subgrid1_itemD {
+    grid-column: D_start / D_end;
+    grid-row: D_r_start / D_r_end;
+}
+
+.subgrid1_itemE {
+    grid-column: E_start / E_end;
+    grid-row: E_r_start / E_r_end;
+}
+
+.subgrid2 {
+    display: grid;
+    grid-column: subgrid2_start / subgrid2_end;
+    grid-row: subgrid2_r_start / subgrid2_r_end;
+
+}
+
+.subgrid3 {
+    display: grid;
+    grid-column: subgrid3_start / subgrid3_end;
+    grid-row: subgrid3_r_start / subgrid3_r_end;
+}
+
+.subgrid_item {
+    padding: 5px;
+    background-color: rgba(126, 108, 146, 1);
+}
+
+@media (max-width: 320px) {
+    .grid {
+        grid-template-columns: [subgrid1_start subgrid2_start subgrid3_start] 1fr [subgrid1_end subgrid2_end subgrid3_end];
+        grid-template-rows: [subgrid1_r_start] 7fr [subgrid1_r_end subgrid2_r_start] 2fr [subgrid2_r_end];
+    }
+
+    .subgrid3 {
+        display: none;
+    }
+}
